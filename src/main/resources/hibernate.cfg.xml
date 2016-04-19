@@ -6,7 +6,7 @@
 
         <!-- =============== 数据库连接设置 =================== -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://121.40.30.244:3306/chitchat</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/chitchat</property>
         <property name="connection.username">root</property>
         <property name="connection.password">123456</property>
         <!-- =============== 配置使用c3p0数据库连接池 =================== -->
