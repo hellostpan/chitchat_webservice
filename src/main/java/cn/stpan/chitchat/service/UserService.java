@@ -11,6 +11,7 @@ import java.util.List;
  */
 @Service
 public interface UserService {
+    HashMap<String,String> login(String account,String password);
     TUserEntity getUserByUserId(String id);
     List<HashMap<String,Object>> getUserList();
 }

@@ -16,6 +16,25 @@ import java.util.List;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 
+    public HashMap<String,String> login(String account,String password){
+        HashMap<String,String> hashMap = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            String sql = "SELECT id,nickname FROM t_user WHERE account = '"+account+"' AND password = '"+password+"'";
+            Object[] objects = (Object[]) session.createSQLQuery(sql).uniqueResult();
+            if (objects!=null){
+                hashMap = new HashMap<String, String>();
+                hashMap.put("id",objects[0].toString());
+                hashMap.put("nickname",objects[1].toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return hashMap;
+    }
+
     public TUserEntity getUserByUserId(String id) {
         TUserEntity user = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

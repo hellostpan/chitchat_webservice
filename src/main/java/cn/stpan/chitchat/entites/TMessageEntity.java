@@ -16,6 +16,8 @@ public class TMessageEntity {
     private String isSend;
     private String createTime;
     private String sendTime;
+    private String status;
+    private String parentId;
 
     @Id
     @Column(name = "id")
@@ -127,5 +129,25 @@ public class TMessageEntity {
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         result = 31 * result + (sendTime != null ? sendTime.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "status")
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Basic
+    @Column(name = "parent_id")
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 }

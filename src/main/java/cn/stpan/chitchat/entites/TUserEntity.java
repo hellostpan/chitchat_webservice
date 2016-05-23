@@ -18,6 +18,7 @@ public class TUserEntity {
     private String createTime;
     private String updateTime;
     private String lastTimeLogin;
+    private String isOnline;
 
     @Id
     @Column(name = "id")
@@ -154,5 +155,15 @@ public class TUserEntity {
         result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
         result = 31 * result + (lastTimeLogin != null ? lastTimeLogin.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "is_online")
+    public String getIsOnline() {
+        return isOnline;
+    }
+
+    public void setIsOnline(String isOnline) {
+        this.isOnline = isOnline;
     }
 }

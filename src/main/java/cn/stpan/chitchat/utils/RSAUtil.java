@@ -31,6 +31,7 @@ public class RSAUtil {
         byte[] decodedData = RSAUtil.decrypt(encodedData, privateKey, false);
 
         String targetString = new String(decodedData);
+        System.out.println("加密后："+encodedData);
         System.out.println("加密前: " + sourceString + "，解密后: " + targetString);
 
         System.out.println("私钥签名，公钥验证签名");
@@ -54,6 +55,12 @@ public class RSAUtil {
 
         targetString = new String(decodedData);
         System.out.println("加密前: " + sourceString + "，解密后: " + targetString);
+        String a1 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYGb4JfvYD/WtlK5AkANj4YfngcI7BRaOuKlI+\n" +
+                "awEOgNsyJGw5VPkGaYsdHFYASXFCt4lI9om6SQgLSJGPmf64bt94ID0FTtJMt7wdUCanRxVJZPnj\n" +
+                "x/cnovQIBgiN5bONUQ9mXfUyknQ8sOA42Dk8np5sZL/rxOj2gXNiH+uFhQIDAQAB";
+        String a2 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCclRAhqBZbYBAd79YETl+Clm9LazYkS1HCZYSP\n" +
+                "WOfhII+zBCueeoyBLpgEmjHHWFC0/6EITI+/nkU10wdiJkKWeTCMHzrM2+4xnf2ImiqhtkrQjPSa\n" +
+                "3M/8XsP/lXLcXvJf/aF7RLT8I8dOYldPcnybRCM3JT7JwIZZBS84GIMSJQIDAQAB";
     }
 
     /**

@@ -17,7 +17,7 @@ import java.util.List;
  * Created by Administrator on 2016/1/14.
  */
 @RestController
-@RequestMapping("rest/user")
+@RequestMapping("rest/test")
 public class WebServiceController {
     private UserService userService;
     private Logger log = Logger.getLogger(WebServiceController.class);
