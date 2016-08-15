@@ -2,6 +2,7 @@ package cn.stpan.chitchat.controller.webservice;
 
 import cn.stpan.chitchat.entites.TUserEntity;
 import cn.stpan.chitchat.service.UserService;
+import cn.stpan.chitchat.utils.CodeConstant;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.org.apache.xml.internal.serializer.ToUnknownStream;
@@ -27,20 +28,19 @@ public class UserServiceController {
         if (hashMap!=null){
             String password = hashMap.get("password");
             String account = hashMap.get("account");
-            map.put("code","1");
+            map.put("code", CodeConstant.SUCCESS);
             map.put("result",userService.login(account,password));
         }else {
-            map.put("code","2");
+            map.put("code",CodeConstant.EMPTY);
         }
         log.info(JSON.toJSONString(map));
         return JSON.toJSONString(map);
     }
 
     @RequestMapping("/userInfo/{userId}")
-    public TUserEntity getUserByUserId(@PathVariable(value = "userId") String userId) {
+    public String getUserByUserId(@PathVariable(value = "userId") String userId) {
         TUserEntity user = userService.getUserByUserId(userId);
-        ObjectMapper mapper = new ObjectMapper();
-        log.info(JSON.toJSON(user));
-        return user;
+        log.info(JSON.toJSONString(user));
+        return JSON.toJSONString(user);
     }
 }
